@@ -1,3 +1,9 @@
+pub mod auth_error;
+pub mod error;
+pub mod pull_error;
+pub mod registry_error;
+pub mod storage_error;
+
 #[tauri::command]
 fn greet(name: &str) -> String {
     format!("Hello, {}! You've been greeted from Rust!", name)

@@ -5,13 +5,14 @@ on:
 jobs:
   test:
     strategy:
-      matrix: { os: [macos-14, macos-14-arm, windows-2022, ubuntu-22.04] }
+      fail-fast: false
+      matrix: { os: [macos-latest, windows-latest, ubuntu-22.04] }
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
       - uses: actions/setup-node@v4
-        with: { node-version: 20, cache: 'npm' }
+        with: { node-version: lts/*, cache: 'npm' }
       - if: contains(matrix.os, 'ubuntu')
         run: |
           sudo apt-get update

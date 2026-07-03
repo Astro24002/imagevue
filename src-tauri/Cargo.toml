@@ -2,7 +2,7 @@
 name = "imagevue"
 version = "0.1.0"
 description = "OCI image & chart registry viewer"
-authors = ["you"]
+authors = ["bkverse"]
 edition = "2021"
 
 [lib]

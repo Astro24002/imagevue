@@ -1,8 +1,10 @@
 use crate::auth_error::AuthError;
 use crate::oci::auth::RegistryKind;
 use crate::storage::keyring::KeyringStore;
+use serde::Serialize;
 use uuid::Uuid;
 
+#[derive(Debug, Clone, Serialize)]
 pub struct OAuthSession {
     pub auth_url: String,
     pub state: String,

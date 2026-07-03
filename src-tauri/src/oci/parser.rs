@@ -35,7 +35,7 @@ pub fn parse_manifest(raw: &[u8], content_type: &str) -> Result<ManifestSummary,
     struct RawDescriptor { #[serde(rename = "mediaType")] media_type: String, digest: String, size: u64 }
     #[derive(serde::Deserialize)]
     struct RawManifestEntry {
-        #[serde(rename = "mediaType")] media_type: String, digest: String, size: u64,
+        #[serde(rename = "mediaType")] #[allow(dead_code)] media_type: String, #[allow(dead_code)] digest: String, size: u64,
         #[serde(default)] platform: Option<RawPlatform>,
     }
     #[derive(serde::Deserialize)]

@@ -80,6 +80,7 @@ pub struct NoopCredentialProvider;
 #[async_trait::async_trait]
 impl CredentialProvider for NoopCredentialProvider {}
 
+#[allow(dead_code)]
 pub struct AuthInterceptor {
     http: HttpClient,
     cache: Arc<TokenCache>,

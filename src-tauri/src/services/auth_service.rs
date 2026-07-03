@@ -86,6 +86,6 @@ mod tests {
         assert!(!s.state.is_empty());
         assert!(base64::engine::general_purpose::URL_SAFE_NO_PAD.decode(&s.code_verifier).is_ok());
     }
-
-    use base64::{engine::general_purpose::URL_SAFE_NO_PAD, Engine};
 }
+
+use base64::Engine;

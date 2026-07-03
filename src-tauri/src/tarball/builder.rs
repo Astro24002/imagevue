@@ -5,6 +5,7 @@ use std::io::{BufWriter, Write};
 use std::path::{Path, PathBuf};
 
 pub struct TarballBuilder {
+    #[allow(dead_code)]
     path: PathBuf,
     file: BufWriter<File>,
     config_name: Option<String>,

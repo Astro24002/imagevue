@@ -5,6 +5,7 @@ use serde::Serialize;
 use uuid::Uuid;
 
 #[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
 pub struct OAuthSession {
     pub auth_url: String,
     pub state: String,
@@ -72,6 +73,7 @@ fn generate_verifier() -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use base64::Engine;
 
     #[test]
     fn dockerhub_oauth_rejected() {
@@ -87,5 +89,3 @@ mod tests {
         assert!(base64::engine::general_purpose::URL_SAFE_NO_PAD.decode(&s.code_verifier).is_ok());
     }
 }
-
-use base64::Engine;

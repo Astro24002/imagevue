@@ -1,15 +1,13 @@
 <template>
-  <AppShell>
-    <n-space align="center" style="margin-bottom: 16px">
-      <n-text strong>{{ connection?.name }}</n-text>
-      <n-tag size="small">{{ connection?.kind }}</n-tag>
-    </n-space>
-    <n-space style="margin-bottom: 16px">
-      <n-input v-model:value="query" :placeholder="t('registry.search')" clearable style="width: 360px" @keyup.enter="reload" />
-      <n-button @click="reload">{{ t('registry.filter') }}</n-button>
-    </n-space>
-    <n-data-table :columns="columns" :data="repos" :loading="loading" :pagination="{ pageSize: 50 }" />
-  </AppShell>
+  <n-space align="center" style="margin-bottom: 16px">
+    <n-text strong>{{ connection?.name }}</n-text>
+    <n-tag size="small">{{ connection?.kind }}</n-tag>
+  </n-space>
+  <n-space style="margin-bottom: 16px">
+    <n-input v-model:value="query" :placeholder="t('registry.search')" clearable style="width: 360px" @keyup.enter="reload" />
+    <n-button @click="reload">{{ t('registry.filter') }}</n-button>
+  </n-space>
+  <n-data-table :columns="columns" :data="repos" :loading="loading" :pagination="{ pageSize: 50 }" />
 </template>
 
 <script setup lang="ts">
@@ -17,7 +15,6 @@ import { onMounted, ref, h } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { invoke } from '@tauri-apps/api/core';
-import AppShell from '@/components/AppShell.vue';
 import { useConnectionsStore } from '@/stores/connections';
 import { NInput, NButton, NSpace, NText, NTag, NDataTable } from 'naive-ui';
 const { t } = useI18n();

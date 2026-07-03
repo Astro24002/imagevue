@@ -1,11 +1,9 @@
 <template>
-  <AppShell>
-    <n-space align="center" style="margin-bottom: 16px">
-      <n-button text @click="$router.back()">←</n-button>
-      <n-text strong>{{ repoPath }}</n-text>
-    </n-space>
-    <n-data-table :columns="columns" :data="tags" :loading="loading" :pagination="{ pageSize: 50 }" />
-  </AppShell>
+  <n-space align="center" style="margin-bottom: 16px">
+    <n-button text @click="$router.back()">←</n-button>
+    <n-text strong>{{ repoPath }}</n-text>
+  </n-space>
+  <n-data-table :columns="columns" :data="tags" :loading="loading" :pagination="{ pageSize: 50 }" />
 </template>
 
 <script setup lang="ts">
@@ -13,7 +11,6 @@ import { onMounted, ref, h, computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { invoke } from '@tauri-apps/api/core';
-import AppShell from '@/components/AppShell.vue';
 import { NButton, NText, NDataTable, NSpace, NTag } from 'naive-ui';
 const { t } = useI18n();
 const route = useRoute();

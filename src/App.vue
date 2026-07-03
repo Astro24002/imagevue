@@ -1,29 +1,18 @@
-<script setup lang="ts">
-</script>
-
 <template>
-  <main>
-    <h1>ImageVue</h1>
-  </main>
+  <n-config-provider :theme="null">
+    <n-message-provider>
+      <n-dialog-provider>
+        <n-notification-provider>
+          <router-view />
+        </n-notification-provider>
+      </n-dialog-provider>
+    </n-message-provider>
+  </n-config-provider>
 </template>
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body, #app {
-  height: 100%;
-  width: 100%;
-}
-
-main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  font-family: sans-serif;
-}
-</style>
+<script setup lang="ts">
+import { onMounted } from 'vue';
+import { usePullStore } from '@/stores/pull';
+const pull = usePullStore();
+onMounted(() => { pull.listen(); });
+</script>

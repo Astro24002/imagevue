@@ -30,7 +30,8 @@ jobs:
             libjavascriptcoregtk-4.1-dev
       - run: npm ci
       - uses: tauri-apps/tauri-action@v0
-        env: { GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} }
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tagName: ${{ github.ref_name }}
           releaseName: 'ImageVue ${{ github.ref_name }}'

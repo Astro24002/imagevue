@@ -15,3 +15,9 @@ pub enum RegistryError {
     #[error("network: {0}")]
     Network(String),
 }
+
+impl From<crate::auth_error::AuthError> for RegistryError {
+    fn from(e: crate::auth_error::AuthError) -> Self {
+        RegistryError::Network(e.to_string())
+    }
+}

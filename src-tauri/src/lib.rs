@@ -1,5 +1,6 @@
 pub mod logging;
 pub mod oci;
+pub mod storage;
 pub mod auth_error;
 pub mod error;
 pub mod pull_error;
